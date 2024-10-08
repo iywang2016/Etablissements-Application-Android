@@ -4,68 +4,70 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.checkerframework.checker.confidential.qual.*;
+
 @Entity(tableName = "etablissements")
 public class Etablissement {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private @NonConfidential int id;
 
     @ColumnInfo(name = "label")
-    private String label;
+    private @NonConfidential String label;
 
     @ColumnInfo(name = "name")
-    private String name;
+    private @NonConfidential String name;
 
     @ColumnInfo(name = "imag")
-    private int imag;
+    private @NonConfidential int imag;
 
     @ColumnInfo(name = "isPublic")
-    private boolean isPublic;
+    private @NonConfidential boolean isPublic;
 
-    public Etablissement(String label, String name, int imag, boolean isPublic) {
+    public Etablissement(@NonConfidential String label, @NonConfidential String name, @NonConfidential int imag, @NonConfidential boolean isPublic) {
         this.label = label;
         this.name = name;
         this.imag = imag;
         this.isPublic = isPublic;
     }
 
-    public int getId() {
+    public @NonConfidential int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(@NonConfidential int id) {
         this.id = id;
     }
 
-    public String getLabel() {
+    public @NonConfidential String getLabel() {
         return label;
     }
 
-    public void setLabel(String label) {
+    public void setLabel(@NonConfidential String label) {
         this.label = label;
     }
 
-    public String getName() {
+    public @NonConfidential String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonConfidential String name) {
         this.name = name;
     }
 
-    public int getImag() {
+    public @NonConfidential int getImag() {
         return imag;
     }
 
-    public void setImag(int imag) {
+    public void setImag(@NonConfidential int imag) {
         this.imag = imag;
     }
 
-    public boolean isPublic() {
+    public @NonConfidential boolean isPublic() {
         return isPublic;
     }
 
-    public void setPublic(boolean aPublic) {
+    public void setPublic(@NonConfidential boolean aPublic) {
         isPublic = aPublic;
     }
 }

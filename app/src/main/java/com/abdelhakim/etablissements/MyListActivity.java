@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.checkerframework.checker.confidential.qual.*;
+
 public class MyListActivity extends AppCompatActivity {
 
     private List<Etablissement> allEtablissements;
@@ -37,7 +39,9 @@ public class MyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         text = findViewById(R.id.user);
-        text.setText("Bonjour, " + Objects.requireNonNull(getIntent().getStringExtra("username")).toUpperCase());
+        @SuppressWarnings("confidential")
+        @NonConfidential String username = Objects.requireNonNull(getIntent().getStringExtra("username")).toUpperCase();
+        text.setText("Bonjour, " + username);
 
         // get the reference of RecyclerView
         RecyclerView rv = findViewById(R.id.list);

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.abdelhakim.etablissements.db.Etablissement;
 import com.abdelhakim.etablissements.db.MyDatabase;
 
+import org.checkerframework.checker.confidential.qual.*;
+
 public class AjouterEtablissmentActivity extends AppCompatActivity {
 
     private EditText label;

@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.abdelhakim.etablissements.db.MyDatabase;
 import com.abdelhakim.etablissements.db.User;
 
+import org.checkerframework.checker.confidential.qual.*;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             user.login = login.getText().toString();
             user.pass = pass.getText().toString();
             if (!(login.getText().toString()).matches("")) {
-                List<User> usr = mydatabase.mydao().getUser(login.getText().toString());
+                @NonConfidential List<User> usr = mydatabase.mydao().getUser(login.getText().toString());
 
                 if (usr.size() != 0) {
                     if (usr.get(0).pass.contentEquals(pass.getText().toString())) {

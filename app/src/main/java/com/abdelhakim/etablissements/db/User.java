@@ -5,29 +5,31 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import org.checkerframework.checker.confidential.qual.*;
+
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey
     @NonNull
-    public String login;
+    public @NonConfidential String login;
 
     @ColumnInfo(name = "user_pass")
-    public String pass;
+    public @Confidential String pass;
 
     @NonNull
-    public String getLogin() {
+    public @NonConfidential String getLogin() {
         return login;
     }
 
-    public String getPass() {
+    public @Confidential String getPass() {
         return pass;
     }
 
-    public void setLogin(@NonNull String login) {
+    public void setLogin(@NonNull @NonConfidential String login) {
         this.login = login;
     }
 
-    public void setPass(String pass) {
+    public void setPass(@Confidential String pass) {
         this.pass = pass;
     }
 }
